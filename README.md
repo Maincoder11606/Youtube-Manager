@@ -37,8 +37,21 @@ cd Youtube-Manager
 
 ```bash
 python -m venv venv
-source venv/bin/activate        # On Windows: venv\Scripts\activate
 ```
+
+#### Activate it:
+
+- **On Linux/macOS:**
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+- **On Windows:**
+
+  ```bash
+  venv\Scripts\activate
+  ```
 
 ### 3. Install Dependencies
 
