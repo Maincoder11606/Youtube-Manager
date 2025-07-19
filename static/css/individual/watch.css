@@ -1,0 +1,70 @@
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .video-thumbnail {
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .video-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .scroll-container {
+    max-height: 80vh; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    
+  }
+  .video-title {
+    font-size: 14px;
+    font-weight: bold;
+    max-width: 150px; /* Adjust this value based on your design */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and (min-width:200px) and (max-width:400px){
+
+    .video-thumbnail {
+      width: 230px;
+      height: 230px;
+      border-radius: 10%;
+      overflow: hidden;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-thumbnail iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .result,.recommended-v{
+      font-size:20px;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }

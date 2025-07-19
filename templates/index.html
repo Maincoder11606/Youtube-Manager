@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"
+    />
+    <meta
+      name="description"
+      content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Youtube Manager</title>
+    <link
+      rel="canonical"
+      href="https://www.wrappixel.com/templates/ample-admin-lite/"
+    />
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./static/plugins/images/favicon.png"
+    />
+    <!-- Custom CSS -->
+    <link
+      href="./static/plugins/bower_components/chartist/dist/chartist.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./static/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css"
+    />
+    <!-- Custom CSS -->
+    <link href="./static/css/style.css" rel="stylesheet" />
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add the Chart.js script tag here -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+  </head>
+
+  <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+          <div class="navbar-header" data-logobg="skin6">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <a class="navbar-brand" href="#">
+              <!-- Logo icon -->
+              <b class="logo-icon">
+                <!-- Dark Logo icon -->
+                <!--logo-image ./static/plugins-->
+              </b>
+              <!--End Logo icon -->
+              <!-- Logo text -->
+              <span class="logo-text">
+                <!-- dark Logo text -->
+                <img src="./static/plugins/images/logo-text.jpeg" alt="logo" width="130px" height="40px"/>
+              </span>
+            </a>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <a
+              class="
+                nav-toggler
+                waves-effect waves-light
+                text-dark
+                d-block d-md-none
+              "
+              href="javascript:void(0)"
+              ><i class="ti-menu ti-close"></i
+            ></a>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <div
+            class="navbar-collapse collapse"
+            id="navbarSupportedContent"
+            data-navbarbg="skin5"
+          >
+            <!-- ============================================================== -->
+            <!-- Right side toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
+              <!-- ============================================================== -->
+              <!-- Search -->
+              <!-- ============================================================== -->
+              <div class="bar">
+                <a
+                  class="bar-icons "
+                  href="{{url_for('index')}}"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                  Home
+                </a>
+                <a
+                class="bar-icons"
+                href="{{url_for('profile_board')}}"
+                aria-expanded="false"
+              >
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Profile
+              </a>
+              <a
+              class="bar-icons"
+              href="{{url_for('watch')}}"
+              aria-expanded="false"
+            >
+              <i class="fa fa-video" aria-hidden="true"></i>
+              Watch
+            </a>
+            <a
+            class="bar-icons"
+            href="{{url_for('updateProfile')}}"
+            aria-expanded="false"
+          >
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            Settings
+          </a>
+          </div>
+        
+              <div class="main">
+                
+  
+                <!-- Actual search box -->
+                <form method="post" action="/index">
+                <div class="form-group has-search">
+                  <a href="#" onclick="document.forms[0].submit()";>
+                  <span class="fa fa-search form-control-feedback" ></span></a>
+                  <input type="text" name="channel_id" class="form-control" placeholder="Channel Id...">
+                
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    <ul class="flashes">
+                      {% for category, message in messages %}
+                        {% if category == 'error' %}
+                          <li class="error" style="color:red;list-style: none;">{{ message }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                </div>
+               
+    </form>
+                </div>
+                
+
+                <p class="channel-reference" style="color:#FFFF"><a href="#channel-id-input">Find My Channel ID</a></p>
+              <!-- ============================================================== -->
+              <!-- User profile and search -->
+              <!-- ============================================================== -->
+              {% if current_user.is_authenticated %}
+              <li>
+                <div class="profile-pic">
+                  <img class="img-circle" alt="Picture" style="width: 60px; height: 50px;"
+                  src="{{ url_for('profile_pic', filename=current_user.profile_pic) }}" id="myImg">
+             
+             
+                  <span class="text-white font-medium">{% print(user_name) %}</span></div
+                >
+                
+              </li>
+              <!-- ============================================================== -->
+              <!-- User profile and search -->
+              <!-- ============================================================== -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside class="left-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+              <!-- User Profile-->
+              <li class="sidebar-item pt-2">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('index')}}"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                  <span class="hide-menu">Home</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('profile_board')}}"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span class="hide-menu">Channel Profile</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('watch')}}"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-video" aria-hidden="true"></i>
+                  <span class="hide-menu">Watch</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('updateProfile')}}"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  <span class="hide-menu">Settings</span>
+                </a>
+              </li>
+             
+          
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="break1"><br></div>
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+          <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+              <h4 class="page-title">Dashboard</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+              <div class="d-md-flex">
+                <ol class="breadcrumb ms-auto">
+                  <li><a href="#" class="fw-normal"><i class="fas fa-share" title="share app" id="share"></i></a></li>
+                </ol>
+                <a
+                  href="#"
+                 
+                  class="
+                    btn btn-danger
+                    d-none d-md-block
+                    pull-right
+                    ms-3
+                    hidden-xs hidden-sm
+                    waves-effect waves-light
+                    text-white
+                  "
+                  ><i class="fas fa-heart" title="Support the developers" id="heart"></i></a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Three charts -->
+          <!-- ============================================================== -->
+        <div class="break"><br><br><br></div>
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12">
+              <div class="white-box analytics-info">
+                <h3 class="box-title">View Count&nbsp;&nbsp;<i class="fa fa-eye" style="color:#90ee90;"></i></h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                  <li>
+                    <div id="sparklinedash">
+                      <canvas
+                        width="67"
+                        height="30"
+                        style="
+                          display: inline-block;
+                          width: 67px;
+                          height: 30px;
+                          vertical-align: top;
+                        "
+                      ></canvas>
+                     
+                    </div>
+        
+                  </li>
+                 
+                  
+                  <li class="ms-auto">
+                    
+                    <span class="counter text-success"><div>
+                      {% if get_flashed_messages(category_filter='views') %}
+                      <p>{{ get_flashed_messages(category_filter='views')[0] }}</p>
+                  {% else %}
+                      <p>{{ views }}</p>
+                  {% endif %}
+                  </div></span>
+                    
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="white-box analytics-info">
+                <h3 class="box-title">Video Count&nbsp;&nbsp;<i class="fa fa-video" style="color: #8a2be2;"></i></h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                  <li>
+                    <div id="sparklinedash2">
+                      <canvas
+                        width="67"
+                        height="30"
+                        style="
+                          display: inline-block;
+                          width: 67px;
+                          height: 30px;
+                          vertical-align: top;
+                        "
+                      ></canvas>
+                    </div>
+                  </li>
+                 
+                  <li class="ms-auto">
+                   
+                    <span class="counter text-purple"><div>
+                      <!-- Display flashed messages for likes -->
+                      {% if get_flashed_messages(category_filter='likes') %}
+            <p> {{ get_flashed_messages(category_filter='likes')[0] }}</p>
+        {% else %}
+            <p>{{ likes }}</p>
+        {% endif %}
+                      
+                  </div></span>
+                  
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="white-box analytics-info">
+                <h3 class="box-title">Subscriber Count &nbsp;&nbsp;<i class="fa fa-users me-1 text-info"></i></h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                  <li>
+                    <div id="sparklinedash3">
+                      <canvas
+                        width="67"
+                        height="30"
+                        style="
+                          display: inline-block;
+                          width: 67px;
+                          height: 30px;
+                          vertical-align: top;
+                        "
+                      ></canvas>
+                    </div>
+                  </li>
+                
+                  <li class="ms-auto">
+                    <span class="counter text-info">  <div>
+                      {% if get_flashed_messages(category_filter='subscribers') %}
+                      <p>{{ get_flashed_messages(category_filter='subscribers')[0] }}</p>
+                  {% else %}
+                      <p>{{ subscribers }}</p>
+                  {% endif %}
+                  </div></span>
+                    
+                  
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- PRODUCTS YEARLY SALES -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <h6 class="chart-view">Rotate device for good chart display </h6>
+            
+             <div>{{ chart_html | safe }}</div>
+            
+           
+                
+            
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="white-box analytics-info">
+                <h6>Find your channel id by searching your channel name</h6>
+                <form method="post" action="{{ url_for('searchChannel')}}">
+              
+              <div class="form-group has-search">
+                <a href="#";>
+                <span class="fa fa-search form-control-feedback" ></span></a>
+                <input type="text" name="channel_name" class="form-control" placeholder="Search channel name..." id="channel-id-input">
+              <br>
+              
+                <span id="textToCopy"> {% if channel_id %}
+                  <div class="channel-id">
+                       {{channel_id }}
+             
+                <i id="copyIcon" class="fas fa-copy"> <div id="copyMessage"></div> </i>
+                 </div>
+            </div>
+           
+            
+            {% endif %}</span>
+              </form>
+            </div>
+          </div><script>
+          // Function to copy text to the clipboard
+          function copyTextToClipboard() {
+              const textToCopy = document.getElementById('textToCopy');
+              const copyMessage = document.getElementById('copyMessage');
+              
+              // Create a temporary input element to copy the text
+              const tempInput = document.createElement('textarea');
+              tempInput.value = textToCopy.innerText;
+              document.body.appendChild(tempInput);
+              
+              // Select and copy the text
+              tempInput.select();
+              document.execCommand('copy');
+              
+              // Remove the temporary input element
+              document.body.removeChild(tempInput);
+              
+              // Show the "Copied" message
+              copyMessage.style.display = 'block';
+              
+              // Hide the "Copied" message after a few seconds
+              setTimeout(function () {
+                  copyMessage.style.display = 'none';
+              }, 2000); // 2000 milliseconds (2 seconds)
+          }
+          
+          // Add a click event listener to the copy icon
+          const copyIcon = document.getElementById('copyIcon');
+          copyIcon.addEventListener('click', copyTextToClipboard);</script>
+          
+          </div>
+        
+          
+          <!-- ============================================================== -->
+          <!-- RECENT SALES -->
+          <!-- ============================================================== -->
+        
+          {% endif %}
+          <!-- ============================================================== -->
+          <!-- Recent Comments -->
+          <!-- ============================================================== -->
+          
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+          2023 © Maincoder All Rights Reserved
+          
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="./static/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="./static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/app-style-switcher.js"></script>
+    <script src="./static/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--Wave Effects -->
+    <script src="./static/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="./static/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="./static/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart--> 
+    
+    <script src="./static/plugins/bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="./static/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="./static/js/pages/dashboards/dashboard1.js"></script>
+  </body>
+</html>

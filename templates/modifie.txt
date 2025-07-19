@@ -1,0 +1,43 @@
+
+@app.route('/', methods=['GET', 'POST'])
+def login_regular():
+    form = LoginForm()
+    user = New_User.query.filter_by(email=form.email.data).first()
+    if user:
+     if bcrypt.check_password_hash(user.password, form.password.data):
+        login_user(user)
+        return redirect(url_for('index'))
+     else:
+        flash('Invalid password. Please try again.', 'error')
+    else:
+     flash('Invalid email. Please try again.', 'error')
+     
+    return render_template('signin.html', form=form)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = RegistrationForm()
+
+    if request.method == 'POST':  # Check if it's a POST request
+        if form.validate_on_submit():
+            existing_user = New_User.query.filter_by(email=form.email.data).first()
+            if existing_user:
+                flash('This email already exists. Please choose a different email.', 'error')
+            else:
+                hashed_password = bcrypt.generate_password_hash(form.password.data)
+                user = New_User(
+                    firstname=form.firstname.data,
+                    lastname=form.lastname.data,
+                    email=form.email.data,
+                    phone=form.phone.data,
+                    password=hashed_password,
+                    password_confirm=hashed_password
+                )
+                db.session.add(user)
+                try:
+                    db.session.commit()
+                    return redirect(url_for('login_regular'))
+                except Exception as e:
+                    db.session.rollback()
+                    flash('An error occurred during registration. Please try again.', 'error')
+    return render_template('signup.html', form=form)

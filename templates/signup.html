@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Signup | Youtube Manager</title>
+    <link rel="stylesheet" href="./static/css/individual/form.css" />
+  
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>Signup</header>
+        <form action="{{url_for('register')}}" method="post">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="text" name="email" placeholder="Email address" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <div class="error"> {% if flash_message %}
+            <div class="alert alert-danger" style="color:red;" role="alert">
+                {{ flash_message }}
+            </div>
+        {% endif %}</div>
+          <input type="submit" value="Signup" />
+        </form>
+      </div>
+
+      
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+    </section>
+  </body>
+</html>

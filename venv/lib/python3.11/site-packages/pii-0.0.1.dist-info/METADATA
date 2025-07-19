@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pii
+Version: 0.0.1
+Summary: pii
+Home-page: https://github.com/kprzybyla/pii
+Author: Krzysztof Przybyła
+Author-email: krzysztof.h.przybyla@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+
+pii
+---
+
+|py3|
+
+.. |py3| image:: https://img.shields.io/badge/python-3-blue.svg
+
+Bugs/Requests
+-------------
+
+Please use the `GitHub issue tracker`_ to submit bugs or request features.
+
+.. _`GitHub issue tracker`: https://github.com/kprzybyla/pii/issues
+
+License
+-------
+
+Copyright Krzysztof Przybyła, 2021.
+
+Distributed under the terms of the `MIT`_ license.
+
+.. _`MIT`: https://github.com/kprzybyla/pii/blob/master/LICENSE
+
+
