@@ -31,3 +31,35 @@ This is a simple project that allows you to manage your YouTube channel using **
    ```bash
    git clone https://github.com/Maincoder11606/Youtube-Manager.git
    cd Youtube-Manager
+
+2.**Create a Virtual Environment**
+   
+   python -m venv venv
+   source venv/bin/activate        # On Windows: venv\Scripts\activate
+
+
+4.**Install Dependencies**
+ 
+   pip install -r requirements.txt
+
+ 
+ 5.**Set Your Google OAuth Credentials**
+ 
+   Create a .env file in the root directory and add the following:
+
+   GOOGLE_CLIENT_ID=your-client-id
+   GOOGLE_CLIENT_SECRET=your-client-secret
+
+
+ 6.**Run the App**
+
+   python app.py
+
+ **💡 Contributing**
+ 
+   Pull requests are welcome! Please open an issue first to discuss changes you’d like to make.
+   
+
+ **📄 License**
+ 
+   This project is open-source and free to use under the MIT License.
